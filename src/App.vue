@@ -28,7 +28,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 10;
-  top: 38px;
+  top: 43px;
 }
 
 .weui_switch:checked {
@@ -44,7 +44,7 @@ body {
   display: flex;
   top: 0;
   width: 100%;
-  height: 38px;
+  height: 43px;
   background-color: #fcfcfc;
   border-bottom: 1px solid #e2e2e2;
   box-shadow: 1px 3px 5px 0 #fefefe;
@@ -53,7 +53,7 @@ body {
 
 .item {
   flex: 1 0 33%;
-  line-height: 40px;
+  line-height: 43px;
   text-align: center;
 }
 
@@ -101,9 +101,10 @@ body {
       <tab-item :selected="$route.name === 'statistic'" v-link="{name: 'statistic'}">统计</tab-item>
       <tab-item :selected="$route.name === 'setting'" v-link="{name: 'setting'}">设置</tab-item>
     </tab>
-    <confirm :show.sync="showAddConfirm" cancel-text="取消" title="add一个番茄钟" confirm-text="确认" @on-confirm="onConfirm" @on-cancel="onCancel">
+    <confirm :show.sync="showAddConfirm" cancel-text="取消" title="添加一个番茄钟" confirm-text="确认" @on-confirm="onConfirm" @on-cancel="onCancel">
       <input class="tomato" type="text" v-model="tomato.title">
     </confirm>
+    <div id="js-dark"></div>
     <router-view class="content" keep-alive></router-view>
   </div>
 </template>

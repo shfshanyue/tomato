@@ -1,5 +1,4 @@
 export const groupItems = state => {
-  console.log('get groupItems...')
   return state.items.reduce((groupItems, item) => {
     let date = item.start.toLocaleDateString()
     if (!groupItems.hasOwnProperty(date)) {

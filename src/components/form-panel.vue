@@ -63,7 +63,7 @@
       </div>
       <p class="text-warn" v-text="warn"></p>
       <p class="footer">
-        <span @click="submit">Submit</span>
+        <span @click="submit">提交</span>
         <slot></slot>
       </p>
     </div>

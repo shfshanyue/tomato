@@ -2,24 +2,37 @@
 .content {
   background-color: #fff;
 }
+
+.circles {
+  display: flex;
+}
 </style>
 
 <template>
   <div>
-    <chart-panel :height="140" :text="{header: '最佳工作日', strong: '星期' + goodDay[0], percent: parseInt((goodDay[1] - evenCount) / evenCount * 100)}" :data="chart || {}">hello, world</Chartpanel>
+    <chart-panel :height="140" :text="{header: '最佳工作日', strong: '星期' + goodDay[0], percent: parseInt((goodDay[1] - evenCount) / evenCount * 100)}" :data="chart || {}"></chart-panel>
+    <!-- <circle :data="circle" :width="width" :height="height"></circle> -->
   </div>
 </template>
 
 <script>
 import Group from 'vux/components/group'
 import ChartPanel from './chart-panel.vue'
+import Circle from './circle.vue'
 
 import { groupItems } from '../store/getters'
 
 export default {
   data () {
     return {
-
+      width: 50,
+      height: 50,
+      circle: {
+        x: 25,
+        y: 25,
+        r: 15,
+        size: 0.5
+      }
     }
   },
   ready () {
@@ -30,7 +43,8 @@ export default {
   },
   components: {
     Group,
-    ChartPanel
+    ChartPanel,
+    Circle
   },
   vuex: {
     getters: {

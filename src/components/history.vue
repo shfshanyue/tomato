@@ -39,7 +39,7 @@ span.lable {
       <cell :title="item.title | removeLabel" :inline-desc="item.start | timeto item.end" :value="item.title | addLable" v-touch:press="onPress(item)" v-for="item in group.tomatos | orderBy 'start' -1" track-by="$index"></cell>
     </group>
     <action-sheet :menus="menus" :show.sync="show.menu" @menu-click="onMenu"></action-sheet>
-    <confirm :show.sync="show.confirm" cancel-text="取消" title="修改一个番茄钟" confirm-text="确认" @on-confirm="onConfirm" @on-cancel="onCancel">
+    <confirm :show.sync="show.confirm" cancel-text="取消" title="修改一个番茄钟" confirm-text="确认" @on-confirm="onConfirm" @on-cancel="onCancel" dialog-transition="" mask-transition="">
       <input class="tomato" type="text" v-model="activeCell.title">
     </confirm>
     <loading :show="show.loading"></loading>
@@ -67,7 +67,7 @@ export default {
       scrollTop: 0,
       activeCell: {title: 'Defined Title'},
       oldTitle: '',
-      onLine: false,
+      onLine: navigator.onLine,
       show: {
         alert: false,
         loading: true,
@@ -92,17 +92,21 @@ export default {
     }
   },
   ready() {
-    this.$http.get(`${this.host}/todos`).then(({data}) => {
-      console.log('fetch todos ...', data)
-      this.loadItems(data.results)
-        this.onLine = true;
-        this.show.loading = false;
-      }).catch((err) => {
-        console.log('fetch err:', err)
-      this.onLine = false;
-      this.show.loading = false;
-      this.show.alert = true;
-    })
+    if (this.onLine) {
+      this.$http.get(`${this.host}/todos`).then(({data}) => {
+        console.log('fetch todos ...', data)
+        this.loadItems(data.results)
+          this.show.loading = false;
+        }).catch((err) => {
+          console.log(err,err.name)
+          if (err.name === 'TypeError') {
+
+          } else {
+            this.show.loading = false;
+            this.show.alert = true;
+          }
+      })
+    }
   },
   methods: {
     onPress(item) {

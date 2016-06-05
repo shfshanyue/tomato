@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const state = {
     items: [],
-    host: 'http://tiankui.avosapps.com'
+    host: 'http://localhost:8080/'
 }
 
 const mutations = {
