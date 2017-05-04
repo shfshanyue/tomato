@@ -18,6 +18,14 @@ npm run build
 cordova build android
 ```
 
+## ScreenCast
+![](https://github.com/shfshanyue/tomato/blob/master/assets/1.png?raw=true)
+![](https://github.com/shfshanyue/tomato/blob/master/assets/2.png?raw=true)
+![](https://github.com/shfshanyue/tomato/blob/master/assets/3.png?raw=true)
+![](https://github.com/shfshanyue/tomato/blob/master/assets/4.png?raw=true)
+![](https://github.com/shfshanyue/tomato/blob/master/assets/5.png?raw=true)
+![](https://github.com/shfshanyue/tomato/blob/master/assets/6.png?raw=true)
+
 ## 链接
 + [Leancloud](https://leancloud.cn/)
 + [flask](http://flask.pocoo.org/)
